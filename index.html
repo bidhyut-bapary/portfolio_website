@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bidhyut Bapary — Portfolio</title>
+    <script src="/_sdk/element_sdk.js"></script>
+        <!-- Head এ Lucide CDN যোগ করো -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+    </style>
+    <script
+      src="https://cdn.tailwindcss.com/3.4.17"
+      type="text/javascript"
+    ></script>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  </head>
+  <body class="h-full" style="height: 100%; overflow: auto">
+    <div id="preloader">
+      <div class="loader-ring"></div>
+    </div>
+    <div class="bg-gradient"></div>
+    <!-- Navbar -->
+    <nav class="nav" id="navbar">
+      <a href="#home" class="nav-logo">BiswaJit<span></span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <button
+            class="theme-toggle"
+            id="themeToggle"
+            aria-label="Toggle theme"
+          >
+            <i data-lucide="moon" style="width: 16px; height: 16px"></i>
+          </button>
+        </li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <i data-lucide="menu" style="width: 24px; height: 24px"></i>
+      </button>
+    </nav>
+    <!-- Hero -->
+    <section class="hero" id="home">
+      <div class="hero-avatar">
+        <div class="hero-avatar-inner" id="avatarInitials">
+          <image src="image/Photo1.png" alt="BiswaJit Bapary" />
+        </div>
+      </div>
+      <h1 id="heroHeading">
+        Hi, I'm <span id="heroName">BiswaJit Bapary</span>
+      </h1>
+      <div class="typing-line">
+        <span id="typingText"></span><span class="typing-cursor"></span>
+      </div>
+      <div class="hero-btns">
+        <a
+          href="https://bidhyut-bapary.github.io/web_development_projects/"
+          class="btn btn-primary"
+          ><i data-lucide="folder-open" style="width: 16px; height: 16px"></i>
+          View Projects</a
+        >
+        <a
+          href="https://wa.me/8801788568379?text=Hi%20Bidhyut,%20I%20visited%20your%20portfolio%20website"
+          target="_blank"
+          class="btn btn-outline"
+        >
+          <i data-lucide="send" style="width: 16px; height: 16px"></i>
+          Contact Me
+        </a>
+        <button class="btn btn-accent" id="downloadCV">
+          <i data-lucide="download" style="width: 16px; height: 16px"></i>
+          Download CV
+        </button>
+      </div>
+    </section>
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title sr">About <span>Me</span></h2>
+      <p class="section-sub sr sr-delay-1">Get to know me better</p>
+      <div class="about-grid">
+        <div class="about-info sr sr-delay-2">
+          <p id="aboutDesc">
+            Passionate about technology and innovation, I am a determined
+            student from Barishal, Bangladesh, aiming to build a strong career in
+            the tech field. I love solving problems, learning new technologies,
+            and creating digital experiences that matter.
+          </p>
+          <div class="info-item">
+            <i data-lucide="map-pin"></i
+            ><span id="aboutLocation">Barishal, Bangladesh</span>
+          </div>
+          <div class="info-item">
+            <i data-lucide="mail"></i
+            ><span id="aboutEmail">jit28935@gmail.com</span>
+          </div>
+          <div class="info-item">
+            <i data-lucide="phone"></i
+            ><span id="aboutPhone">+880 178 856 8379</span>
+          </div>
+        </div>
+
+<div
+  class="sr sr-delay-3"
+  style="display: flex; flex-direction: column; gap: 1rem"
+>
+  <!-- SSC -->
+  <a href="https://drive.google.com/file/d/1HmK6WFgR82Y4OFFc9CPhoKFQokVpEuke/view?usp=sharing" target="_blank" class="glass edu-card">
+    <div class="edu-badge">
+      <!-- Graduation Cap Icon -->
+      <i data-lucide="graduation-cap" style="width: 22px; height: 22px"></i>
+    </div>
+    <div>
+      <h4>SSC Examination</h4>
+      <p>GPA 3.83 — Science</p>
+    </div>
+  </a>
+
+  <!-- HSC -->
+  <a href="https://drive.google.com/file/d/1tiuXJp2BdK8m4r6VnOqvGR8QNJ6_mqIU/view?usp=sharing" target="_blank" class="glass edu-card">
+    <div class="edu-badge">
+      <!-- Award Icon -->
+      <i data-lucide="award" style="width: 22px; height: 22px"></i>
+    </div>
+    <div>
+      <h4>HSC Examination</h4>
+      <p>GPA 3.67 — Humanities</p>
+    </div>
+  </a>
+
+  <!-- NSDA -->
+  <a href="https://drive.google.com/file/d/1NwbK8WbQ7gg2cdDBoWLiTCJYPOiXpp4o/view?usp=sharing" target="_blank" class="glass edu-card">
+    <div class="edu-badge">
+      <!-- Shield Check Icon -->
+      <i data-lucide="shield-check" style="width: 22px; height: 22px"></i>
+    </div>
+    <div>
+      <h4>NSDA Certified</h4>
+      <p>Electrical Installation & Maintenance</p>
+    </div>
+  </a>
+</div>
+    </section>
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title sr">My <span>Skills</span></h2>
+      <p class="section-sub sr sr-delay-1">
+        Technologies &amp; abilities I work with
+      </p>
+      <div class="skills-grid" id="skillsGrid"></div>
+    </section>
+    <!-- Projects -->
+    <section id="projects">
+      <h2 class="section-title sr">My <span>Projects</span></h2>
+      <p class="section-sub sr sr-delay-1">
+        Things I've built &amp; am working on
+      </p>
+      <div class="projects-grid" id="projectsGrid"></div>
+    </section>
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title sr">Get In <span>Touch</span></h2>
+      <p class="section-sub sr sr-delay-1">Let's connect and collaborate</p>
+      <div class="contact-grid">
+        <div class="contact-info sr sr-delay-2">
+          <div class="contact-item">
+            <i data-lucide="mail"></i
+            ><span id="contactEmail">jit28935@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <i data-lucide="phone"></i
+            ><span id="contactPhone">+880 178 856 8379</span>
+          </div>
+          <div class="contact-item">
+            <i data-lucide="map-pin"></i><span>Barishal, Bangladesh</span>
+          </div>
+        </div>
+
+ <form action="https://formspree.io/f/xblzpzgj" method="POST" class="contact-form" id="contactForm">
+  
+  <div class="form-group">
+    <input type="text" name="name" required />
+    <label>Your Name</label>
+  </div>
+
+  <div class="form-group">
+    <input type="email" name="email" required />
+    <label>Your Email</label>
+  </div>
+
+  <div class="form-group">
+    <textarea name="message" rows="5" required></textarea>
+    <label>Your Message</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary" id="submitBtn">
+    Send Message
+  </button>
+
+  <p id="successMsg" class="success">
+    ✅ Message sent successfully!
+  </p>
+
+</form>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-socials">
+        <a
+          href="https://facebook.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Facebook"
+          ><i data-lucide="facebook" style="width: 18px; height: 18px"></i
+        ></a>
+        <a
+          href="https://github.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="GitHub"
+          ><i data-lucide="github" style="width: 18px; height: 18px"></i
+        ></a>
+        <a
+          href="https://linkedin.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="LinkedIn"
+          ><i data-lucide="linkedin" style="width: 18px; height: 18px"></i
+        ></a>
+      </div>
+      <p id="footerText">© 2026 BiswaJit. Crafted with passion.</p>
+    </footer>
+    <button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+      <i data-lucide="arrow-up" style="width: 20px; height: 20px"></i>
+    </button>
+    <div class="toast" id="toast"></div>
+    <script src="script.js"></script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'9f2c3f611221d05f',t:'MTc3NzI3NjM0NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
