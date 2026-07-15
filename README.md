@@ -3,7 +3,7 @@
 Welcome to my personal portfolio website!  
 This site showcases my projects, skills, and journey in the field of technology and development.
 
-🔗 Live Website: https://bidhyut-bapary.github.io/my_portfolio_website/
+🔗 Live Website: [https://bidhyut-bapary.github.io/portfolio_website/]
 
 ---
 
