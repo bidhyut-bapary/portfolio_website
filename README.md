@@ -1,4 +1,4 @@
-# 🌐 My Portfolio Website
+# 🌐 Portfolio Website
 
 Welcome to my personal portfolio website!  
 This site showcases my projects, skills, and journey in the field of technology and development.
@@ -57,7 +57,7 @@ my_portfolio_website/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/bidhyut-bapary/my_portfolio_website.git
+git clone https://github.com/bidhyut-bapary/portfolio_website.git
 Open the project folder
 Run index.html in your browser
 📌 Future Improvements

@@ -20,8 +20,8 @@ const siteConfig = {
       title: "Portfolio Website",
       desc: "A personal branding site showcasing skills, education, and projects — built from scratch.",
       emoji: "🌐",
-      live: "#",
-      github: "#",
+      live: "https://bidhyut-bapary.github.io/portfolio_website/",
+      github: "https://github.com/bidhyut-bapary/portfolio_website",
     },
     {
       title: "Cooperative Society Site",
