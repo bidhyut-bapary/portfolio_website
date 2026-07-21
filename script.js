@@ -2,18 +2,18 @@
 const siteConfig = {
   name: "Bidhyut Bapary",
   subtitle: "Aspiring Developer | Tech Enthusiast",
-  location: "Barguna, Bangladesh",
-  email: "bidhyut@email.com",
-  phone: "+880 1XXX XXXXXX",
+  location: "Barishal, Bangladesh",
+  email: "jit28935@gmail.com",
+  phone: "+880 178 856 8379",
   about:
-    "Passionate about technology and innovation, I am a determined student from Barguna, Bangladesh, aiming to build a strong career in the tech field. I love solving problems, learning new technologies, and creating digital experiences that matter.",
+    "Passionate about technology and innovation, I am a determined student from Barishal, Bangladesh, aiming to build a strong career in the tech field. I love solving problems, learning new technologies, and creating digital experiences that matter.",
   skills: [
-    { name: "HTML & CSS", pct: 80, icon: "code-2" },
-    { name: "JavaScript", pct: 55, icon: "file-code" },
-    { name: "Computer Office Apps", pct: 85, icon: "monitor" },
-    { name: "Electrical Installation", pct: 90, icon: "zap" },
-    { name: "Problem Solving", pct: 70, icon: "lightbulb" },
-    { name: "Communication", pct: 75, icon: "message-circle" },
+    { name: "HTML & CSS", pct: 85, icon: "code-2" },
+    { name: "JavaScript", pct: 60, icon: "file-code" },
+    { name: "Computer Office Apps", pct: 90, icon: "monitor" },
+    { name: "Electrical Installation", pct: 95, icon: "zap" },
+    { name: "Problem Solving", pct: 75, icon: "lightbulb" },
+    { name: "Communication", pct: 80, icon: "message-circle" },
   ],
   projects: [
     {
@@ -22,6 +22,7 @@ const siteConfig = {
       emoji: "🌐",
       live: "https://bidhyut-bapary.github.io/portfolio_website/",
       github: "https://github.com/bidhyut-bapary/portfolio_website",
+      tags: ["HTML", "CSS", "JavaScript", "Responsive Design"]
     },
     {
       title: "Cooperative Society Site",
@@ -29,6 +30,7 @@ const siteConfig = {
       emoji: "🏛️",
       live: "#",
       github: "#",
+      tags: ["Database", "Web App", "UI Design"]
     },
     {
       title: "Coming Soon",
@@ -36,6 +38,7 @@ const siteConfig = {
       emoji: "🚀",
       live: null,
       github: null,
+      tags: ["React", "TailwindCSS", "Node.js"]
     },
   ],
 };
@@ -47,43 +50,81 @@ const defaultConfig = {
   about_description: siteConfig.about,
   contact_email: siteConfig.email,
   contact_phone: siteConfig.phone,
-  background_color: "#020617",
-  surface_color: "#0f172a",
-  text_color: "#e2e8f0",
-  primary_action_color: "#3b82f6",
-  secondary_action_color: "#22c55e",
-  font_family: "Poppins",
+  background_color: "#080b11",
+  surface_color: "#111622",
+  text_color: "#f8fafc",
+  primary_action_color: "#6366f1",
+  secondary_action_color: "#10b981",
+  font_family: "Plus Jakarta Sans",
   font_size: 16,
 };
 
 // ===== BUILD DYNAMIC SECTIONS =====
 function buildSkills() {
   const grid = document.getElementById("skillsGrid");
+  if (!grid) return;
   grid.innerHTML = "";
   siteConfig.skills.forEach((s, i) => {
     const card = document.createElement("div");
     card.className = `glass skill-card sr sr-delay-${(i % 4) + 1}`;
-    card.innerHTML = `<div class="skill-icon"><i data-lucide="${s.icon}" style="width:20px;height:20px"></i></div><div class="skill-header"><h4>${s.name}</h4><span class="skill-pct">${s.pct}%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="${s.pct}"></div></div>`;
+    card.innerHTML = `
+      <div class="skill-card-top">
+        <div class="skill-icon">
+          <i data-lucide="${s.icon}" style="width:20px;height:20px"></i>
+        </div>
+        <span class="skill-pct">${s.pct}%</span>
+      </div>
+      <div class="skill-header">
+        <h4>${s.name}</h4>
+      </div>
+      <div class="skill-bar">
+        <div class="skill-fill" data-pct="${s.pct}"></div>
+      </div>
+    `;
     grid.appendChild(card);
   });
 }
 
 function buildProjects() {
   const grid = document.getElementById("projectsGrid");
+  if (!grid) return;
   grid.innerHTML = "";
   siteConfig.projects.forEach((p, i) => {
     const card = document.createElement("div");
     card.className = `glass project-card sr sr-delay-${(i % 3) + 1}`;
+    
     const links = [];
-    if (p.live)
+    if (p.live && p.live !== "#") {
       links.push(
-        `<a href="${p.live}" class="live" target="_blank" rel="noopener noreferrer">Live Demo</a>`,
+        `<a href="${p.live}" class="btn-live" target="_blank" rel="noopener noreferrer">
+          <i data-lucide="external-link" style="width:14px;height:14px"></i> Live Demo
+         </a>`
       );
-    if (p.github)
+    }
+    if (p.github && p.github !== "#") {
       links.push(
-        `<a href="${p.github}" class="gh" target="_blank" rel="noopener noreferrer">GitHub</a>`,
+        `<a href="${p.github}" class="btn-gh" target="_blank" rel="noopener noreferrer">
+          <i data-lucide="github" style="width:14px;height:14px"></i> GitHub
+         </a>`
       );
-    card.innerHTML = `<div class="project-img">${p.emoji}</div><div class="project-body"><h4>${p.title}</h4><p>${p.desc}</p>${links.length ? `<div class="project-links">${links.join("")}</div>` : ""}</div>`;
+    }
+
+    const tagsHTML = p.tags 
+      ? `<div class="project-tags">${p.tags.map(t => `<span class="project-tag-badge">${t}</span>`).join("")}</div>` 
+      : "";
+
+    card.innerHTML = `
+      <div class="project-thumbnail">
+        <div class="project-thumbnail-pattern"></div>
+        <div class="project-emoji-wrapper">${p.emoji}</div>
+      </div>
+      <div class="project-body">
+        ${tagsHTML}
+        <h4>${p.title}</h4>
+        <p>${p.desc}</p>
+        ${links.length ? `<div class="project-links">${links.join("")}</div>` : ""}
+      </div>
+    `;
     grid.appendChild(card);
   });
 }
@@ -94,8 +135,8 @@ buildProjects();
 // ===== TYPING ANIMATION =====
 let typingPhrases = [
   siteConfig.subtitle,
-  "Student from Bangladesh",
   "Always Learning",
+  "Based in Bangladesh"
 ];
 let phraseIdx = 0,
   charIdx = 0,
@@ -103,32 +144,33 @@ let phraseIdx = 0,
 const typingEl = document.getElementById("typingText");
 
 function typeStep() {
-  const phrase = typingPhrases[0] || siteConfig.subtitle;
+  if (!typingEl) return;
+  const phrase = typingPhrases[phraseIdx] || siteConfig.subtitle;
   if (!deleting) {
     typingEl.textContent = phrase.slice(0, charIdx + 1);
     charIdx++;
     if (charIdx >= phrase.length) {
       deleting = true;
-      setTimeout(typeStep, 1800);
+      setTimeout(typeStep, 2000);
       return;
     }
-    setTimeout(typeStep, 60);
+    setTimeout(typeStep, 65);
   } else {
     typingEl.textContent = phrase.slice(0, charIdx - 1);
     charIdx--;
     if (charIdx <= 0) {
       deleting = false;
       phraseIdx = (phraseIdx + 1) % typingPhrases.length;
-      typingPhrases.unshift(typingPhrases.splice(phraseIdx, 1)[0]);
-      setTimeout(typeStep, 400);
+      setTimeout(typeStep, 450);
       return;
     }
-    setTimeout(typeStep, 30);
+    setTimeout(typeStep, 35);
   }
 }
 typeStep();
 
 lucide.createIcons();
+
 // ===== SCROLL REVEAL =====
 const observer = new IntersectionObserver(
   (entries) => {
@@ -138,8 +180,9 @@ const observer = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.1 },
+  { threshold: 0.05, rootMargin: "0px 0px -50px 0px" },
 );
+
 function observeAll() {
   document.querySelectorAll(".sr").forEach((el) => observer.observe(el));
 }
@@ -154,111 +197,163 @@ const skillObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.3 },
+  { threshold: 0.1 },
 );
-document
-  .querySelectorAll(".skill-fill")
-  .forEach((el) => skillObserver.observe(el));
+
+function observeSkills() {
+  document
+    .querySelectorAll(".skill-fill")
+    .forEach((el) => skillObserver.observe(el));
+}
+observeSkills();
 
 // ===== SCROLL TO TOP =====
 const scrollBtn = document.getElementById("scrollTop");
-document.addEventListener("scroll", () => {
-  scrollBtn.classList.toggle("show", window.scrollY > 400);
-});
-scrollBtn.addEventListener("click", () =>
-  window.scrollTo({ top: 0, behavior: "smooth" }),
-);
+if (scrollBtn) {
+  document.addEventListener("scroll", () => {
+    scrollBtn.classList.toggle("show", window.scrollY > 400);
+  });
+  scrollBtn.addEventListener("click", () =>
+    window.scrollTo({ top: 0, behavior: "smooth" }),
+  );
+}
 
 // ===== THEME TOGGLE =====
 const themeBtn = document.getElementById("themeToggle");
 let darkMode = true;
-themeBtn.addEventListener("click", () => {
-  darkMode = !darkMode;
-  document.body.classList.toggle("light-mode", !darkMode);
-  themeBtn.innerHTML = `<i data-lucide="${darkMode ? "moon" : "sun"}" style="width:16px;height:16px"></i>`;
-  lucide.createIcons();
-});
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    darkMode = !darkMode;
+    document.body.classList.toggle("light-mode", !darkMode);
+    themeBtn.innerHTML = `<i data-lucide="${darkMode ? "moon" : "sun"}" style="width:16px;height:16px"></i>`;
+    lucide.createIcons();
+    
+    // Re-apply colors based on theme mode change
+    const config = window.elementSdk?.getConfig() || {};
+    applyConfig(config);
+  });
+}
 
-// ===== HAMBURGER =====
+// ===== HAMBURGER MENU =====
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.getElementById("navLinks");
 
-hamburger.addEventListener("click", () => {
-  navLinks.classList.toggle("open");
-
-  if (navLinks.classList.contains("open")) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
-  }
-});
-document.querySelectorAll(".nav-links a").forEach((link) => {
-  link.addEventListener("click", () => {
-    navLinks.classList.remove("open");
-    document.body.style.overflow = "auto";
+if (hamburger && navLinks) {
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("open");
+    hamburger.classList.toggle("active");
+    if (navLinks.classList.contains("open")) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
   });
-});
-// ===== CONTACT FORM =====
 
+  document.querySelectorAll(".nav-links a").forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.classList.remove("open");
+      hamburger.classList.remove("active");
+      document.body.style.overflow = "auto";
+    });
+  });
+}
+
+// ===== CONTACT FORM =====
 const form = document.getElementById("contactForm");
 const successMsg = document.getElementById("successMsg");
 const btn = document.getElementById("submitBtn");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+if (form && btn) {
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  btn.innerText = "Sending...";
-  btn.disabled = true;
+    btn.innerHTML = `<i class="btn-spinner"></i> Sending...`;
+    btn.disabled = true;
 
-  try {
-    const res = await fetch(form.action, {
-      method: "POST",
-      body: new FormData(form),
-      headers: { Accept: "application/json" },
-    });
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" },
+      });
 
-    if (res.ok) {
-      successMsg.style.display = "block";
-      form.reset();
-
-      setTimeout(() => {
-        successMsg.style.display = "none";
-      }, 4000);
-    } else {
-      alert("❌ Failed to send!");
+      if (res.ok) {
+        showToast("✅ Message sent successfully!");
+        form.reset();
+        
+        // Trigger inputs blur to float labels back down
+        form.querySelectorAll("input, textarea").forEach(input => {
+          input.blur();
+        });
+      } else {
+        showToast("❌ Failed to send message.");
+      }
+    } catch {
+      showToast("⚠️ Network error occurred.");
     }
-  } catch {
-    alert("⚠️ Network error!");
-  }
 
-  btn.innerText = "Send Message";
-  btn.disabled = false;
-});
+    btn.innerText = "Send Message";
+    btn.disabled = false;
+  });
+}
+
 // ===== TOAST =====
 function showToast(msg) {
   const t = document.getElementById("toast");
+  if (!t) return;
   t.textContent = msg;
   t.classList.add("show");
-  setTimeout(() => t.classList.remove("show"), 2500);
+  setTimeout(() => t.classList.remove("show"), 3500);
 }
 
-// ===== PRELOADER =====
+// ===== PRELOADER / WELCOME INTRO =====
 window.addEventListener("load", () => {
-  setTimeout(
-    () => document.getElementById("preloader").classList.add("hidden"),
-    600,
-  );
+  const preloader = document.getElementById("preloader");
+  if (preloader) {
+    // Wait for the premium Welcome animation cycle to finish (approx 2.2 seconds) before hiding
+    setTimeout(() => {
+      preloader.classList.add("hidden");
+    }, 2200);
+  }
 });
+
+// ===== PROFILE IMAGE FALLBACK HANDLER =====
+function initAvatarFallback() {
+  const avatarImg = document.getElementById("avatarImage");
+  const avatarInitials = document.getElementById("avatarInitials");
+  if (avatarImg && avatarInitials) {
+    avatarImg.addEventListener("load", () => {
+      avatarInitials.style.display = "none";
+      avatarImg.style.display = "block";
+    });
+    avatarImg.addEventListener("error", () => {
+      avatarInitials.style.display = "flex";
+      avatarImg.style.display = "none";
+    });
+    // If cache loaded immediately
+    if (avatarImg.complete && avatarImg.naturalWidth > 0) {
+      avatarInitials.style.display = "none";
+      avatarImg.style.display = "block";
+    }
+  }
+}
+document.addEventListener("DOMContentLoaded", initAvatarFallback);
+// Run immediately in case DOMContentLoaded already fired
+initAvatarFallback();
 
 // ===== APPLY CONFIG TO DOM =====
 function applyConfig(cfg) {
   const c = { ...defaultConfig, ...cfg };
 
   // Text content
-  document.getElementById("heroName").textContent =
-    c.hero_name || defaultConfig.hero_name;
-  document.getElementById("heroHeading").innerHTML =
-    `Hi, I'm <span style="background:linear-gradient(135deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent">${c.hero_name || defaultConfig.hero_name}</span>`;
+  const heroNameEl = document.getElementById("heroName");
+  if (heroNameEl) heroNameEl.textContent = c.hero_name || defaultConfig.hero_name;
+
+  const heroHeadingEl = document.getElementById("heroHeading");
+  if (heroHeadingEl) {
+    heroHeadingEl.innerHTML = `Hi, I'm <span class="gradient-text">${c.hero_name || defaultConfig.hero_name}</span>`;
+  }
+
   const initials =
     (c.hero_name || "")
       .split(" ")
@@ -266,31 +361,42 @@ function applyConfig(cfg) {
       .join("")
       .slice(0, 2)
       .toUpperCase() || "BB";
-  document.getElementById("avatarInitials").textContent = initials;
+
+  const initialsEl = document.getElementById("avatarInitials");
+  if (initialsEl) initialsEl.textContent = initials;
 
   typingPhrases = [
     c.hero_subtitle || defaultConfig.hero_subtitle,
-    "Student from Bangladesh",
     "Always Learning",
+    "Based in Bangladesh"
   ];
 
-  document.getElementById("aboutDesc").textContent =
-    c.about_description || defaultConfig.about_description;
-  document.getElementById("aboutEmail").textContent =
-    c.contact_email || defaultConfig.contact_email;
-  document.getElementById("aboutPhone").textContent =
-    c.contact_phone || defaultConfig.contact_phone;
-  document.getElementById("aboutLocation").textContent = siteConfig.location;
-  document.getElementById("contactEmail").textContent =
-    c.contact_email || defaultConfig.contact_email;
-  document.getElementById("contactPhone").textContent =
-    c.contact_phone || defaultConfig.contact_phone;
-  document.getElementById("footerText").textContent =
-    `© 2025 ${c.hero_name || defaultConfig.hero_name}. Crafted with passion.`;
+  const aboutDescEl = document.getElementById("aboutDesc");
+  if (aboutDescEl) aboutDescEl.textContent = c.about_description || defaultConfig.about_description;
+
+  const aboutEmailEl = document.getElementById("aboutEmail");
+  if (aboutEmailEl) aboutEmailEl.textContent = c.contact_email || defaultConfig.contact_email;
+
+  const aboutPhoneEl = document.getElementById("aboutPhone");
+  if (aboutPhoneEl) aboutPhoneEl.textContent = c.contact_phone || defaultConfig.contact_phone;
+
+  const aboutLocationEl = document.getElementById("aboutLocation");
+  if (aboutLocationEl) aboutLocationEl.textContent = siteConfig.location;
+
+  const contactEmailEl = document.getElementById("contactEmail");
+  if (contactEmailEl) contactEmailEl.textContent = c.contact_email || defaultConfig.contact_email;
+
+  const contactPhoneEl = document.getElementById("contactPhone");
+  if (contactPhoneEl) contactPhoneEl.textContent = c.contact_phone || defaultConfig.contact_phone;
+
+  const footerTextEl = document.getElementById("footerText");
+  if (footerTextEl) {
+    footerTextEl.textContent = `© ${new Date().getFullYear()} ${c.hero_name || defaultConfig.hero_name}. Crafted with passion.`;
+  }
 
   // Font
   const font = c.font_family || defaultConfig.font_family;
-  document.body.style.fontFamily = `${font}, Poppins, sans-serif`;
+  document.body.style.fontFamily = `"${font}", "Inter", sans-serif`;
 
   // Font size
   const base = c.font_size || defaultConfig.font_size;
@@ -307,16 +413,23 @@ function applyConfig(cfg) {
       "--bg2",
       c.surface_color || defaultConfig.surface_color,
     );
+    root.style.setProperty(
+      "--primary",
+      c.primary_action_color || defaultConfig.primary_action_color,
+    );
+    root.style.setProperty(
+      "--accent",
+      c.secondary_action_color || defaultConfig.secondary_action_color,
+    );
+  } else {
+    // Light mode base defaults, customizable or standard
+    root.style.setProperty("--bg", "#f8fafc");
+    root.style.setProperty("--bg2", "#ffffff");
+    root.style.setProperty("--primary", "#4f46e5");
+    root.style.setProperty("--accent", "#059669");
   }
-  root.style.setProperty("--text", c.text_color || defaultConfig.text_color);
-  root.style.setProperty(
-    "--primary",
-    c.primary_action_color || defaultConfig.primary_action_color,
-  );
-  root.style.setProperty(
-    "--accent",
-    c.secondary_action_color || defaultConfig.secondary_action_color,
-  );
+  
+  root.style.setProperty("--text", document.body.classList.contains("light-mode") ? "#0f172a" : (c.text_color || defaultConfig.text_color));
 }
 
 // ===== ELEMENT SDK INIT =====
@@ -324,6 +437,12 @@ window.elementSdk.init({
   defaultConfig,
   onConfigChange: async (config) => {
     applyConfig(config);
+    // Re-render skills and projects dynamically since config might change text or structure
+    buildSkills();
+    buildProjects();
+    observeAll();
+    observeSkills();
+    lucide.createIcons();
   },
   mapToCapabilities: (config) => ({
     recolorables: [
@@ -395,3 +514,5 @@ window.elementSdk.init({
 });
 
 lucide.createIcons();
+observeAll();
+observeSkills();
